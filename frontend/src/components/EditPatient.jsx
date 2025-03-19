@@ -35,100 +35,99 @@ export default function EditPatient() {
   };
 
   return (
-    <div className="flex justify-center mt-10">
-      <div className="bg-white shadow-lg rounded-lg w-full max-w-lg">
-        <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-center rounded-t-lg py-4">
-          <h3 className="text-xl font-semibold">Patient Registration</h3>
+    <div className="min-h-screen bg-gray-100 py-6 flex items-center justify-center">
+      <div className="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">Edit Patient Information</h2>
+          <p className="text-sm text-gray-500">Update the patient details in the form below</p>
         </div>
-        <div className="p-6">
-          <form onSubmit={submitHandler}>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Enter Name"
-                value={name}
-                onChange={(e) => setname(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="age" className="block text-sm font-medium text-gray-700">
-                Age
-              </label>
-              <input
-                type="number"
-                id="age"
-                placeholder="Enter Age"
-                value={age}
-                onChange={(e) => setage(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
-                Gender
-              </label>
-              <select
-                id="gender"
-                value={gender}
-                onChange={(e) => setgender(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                <option value="">Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div className="mb-4">
-              <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
-                Contact
-              </label>
-              <input
-                type="text"
-                id="contact"
-                placeholder="Enter Contact"
-                value={contact}
-                onChange={(e) => setcontact(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="address" className="block text-sm font-medium text-gray-700">
-                Address
-              </label>
-              <textarea
-                id="address"
-                rows="3"
-                placeholder="Enter Address"
-                value={address}
-                onChange={(e) => setaddress(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-            </div>
-            <div className="mb-4">
-              <label htmlFor="medicalHistory" className="block text-sm font-medium text-gray-700">
-                Medical History
-              </label>
-              <textarea
-                id="medicalHistory"
-                rows="3"
-                placeholder="Enter Medical History"
-                value={medicalHistory}
-                onChange={(e) => setmedicalHistory(e.target.value)}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-            </div>
-            <div className="text-center">
-              <button
-                type="submit"
-                className="w-full py-2 text-white bg-gradient-to-r from-indigo-500 to-purple-500 rounded-md shadow-md hover:from-indigo-600 hover:to-purple-600">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
+        <form onSubmit={submitHandler} className="mt-8">
+          <div className="mb-6">
+            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter Name"
+              value={name}
+              onChange={(e) => setname(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="age" className="block text-gray-700 text-sm font-bold mb-2">
+              Age
+            </label>
+            <input
+              type="number"
+              id="age"
+              placeholder="Enter Age"
+              value={age}
+              onChange={(e) => setage(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="gender" className="block text-gray-700 text-sm font-bold mb-2">
+              Gender
+            </label>
+            <select
+              id="gender"
+              value={gender}
+              onChange={(e) => setgender(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div className="mb-6">
+            <label htmlFor="contact" className="block text-gray-700 text-sm font-bold mb-2">
+              Contact
+            </label>
+            <input
+              type="text"
+              id="contact"
+              placeholder="Enter Contact"
+              value={contact}
+              onChange={(e) => setcontact(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="address" className="block text-gray-700 text-sm font-bold mb-2">
+              Address
+            </label>
+            <textarea
+              id="address"
+              rows="3"
+              placeholder="Enter Address"
+              value={address}
+              onChange={(e) => setaddress(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+          </div>
+          <div className="mb-6">
+            <label htmlFor="medicalHistory" className="block text-gray-700 text-sm font-bold mb-2">
+              Medical History
+            </label>
+            <textarea
+              id="medicalHistory"
+              rows="3"
+              placeholder="Enter Medical History"
+              value={medicalHistory}
+              onChange={(e) => setmedicalHistory(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+          </div>
+          <div className="flex items-center justify-between">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit">
+              Update Patient
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
