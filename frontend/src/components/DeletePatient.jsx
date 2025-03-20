@@ -1,16 +1,17 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function DeletePatient() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const deletePatient = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/patients/deletePatients/${id}`,
+        `${backendUrl}/api/patients/deletePatients/${id}`
       );
-      navigate("/");
+      navigate('/');
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -30,13 +31,14 @@ export default function DeletePatient() {
             <div className="divide-y divide-gray-200">
               <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                 <p className="text-center">
-                  Are you sure you want to proceed with deleting this patient? This action cannot be
-                  undone.
+                  Are you sure you want to proceed with deleting this patient?
+                  This action cannot be undone.
                 </p>
                 <div className="flex items-center justify-center mt-4">
                   <button
                     onClick={deletePatient}
-                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
                     Confirm Delete
                   </button>
                 </div>

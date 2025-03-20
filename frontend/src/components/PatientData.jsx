@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function PatientData() {
   const [patientData, setPatientData] = useState([]);
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const getPatientData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/patients/getPatients`);
+      const response = await axios.get(
+        `${backendUrl}/api/patients/getPatients`
+      );
       setPatientData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -21,29 +23,35 @@ export default function PatientData() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-semibold text-center text-gray-900 mb-8">Patient Records</h1>
+      <h1 className="text-3xl font-semibold text-center text-gray-900 mb-8">
+        Patient Records
+      </h1>
       <div className="shadow overflow-hidden rounded-lg border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
                 ID
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
                 Name
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
                 Age
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
                 Actions
               </th>
             </tr>
@@ -57,7 +65,9 @@ export default function PatientData() {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {patient.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{patient.age}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {patient.age}
+                </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <div className="flex justify-end gap-2">
                     <Link to={`/edit/${patient._id}`}>
